@@ -1,0 +1,26 @@
+<div class="card">
+  <img src="{{ planta()?.foto }}" class="card-img-top" alt="[img]" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ planta()?.nom }} {{ planta()?.favorite ? '❤️' : '🖤' }}</h5>
+    <p class="card-text">Id: {{ planta()?.id }}</p>
+    <p class="card-text">Creat el {{ planta()?.created_at }} per {{ planta()?.user }}</p>
+    <p class="card-text">Ubicació: {{ planta()?.ubicacio?.latitude }}, {{ planta()?.ubicacio?.longitude }}</p>
+    <p class="card-text">Capacitat: {{ planta()?.capacitat }}</p>
+  
+    <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col">Producció (kW)</th>
+                    <th scope="col">Consum (kW)</th>
+                </tr>
+            </thead>
+            <tbody>
+              @for(registro of registros(); track registro.id){
+                <tr app-registre-plantes [registro]="registro"></tr>
+              }
+            </tbody>
+
+        </table>
+  </div>
+</div>

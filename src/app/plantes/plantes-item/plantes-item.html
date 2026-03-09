@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem;">
+  <img src="{{ planta().foto }}" class="card-img-top" alt="[img]">
+  <div class="card-body">
+    <h5 class="card-title">{{ planta().nom }} <span (click)="toggleFavorite()">{{ planta().favorite ? '❤️' : '🖤' }}</span></h5>
+    <p class="card-text">{{ planta().ubicacio.latitude }}, {{ planta().ubicacio.longitude }}</p>
+    <a [routerLink]="['/planta', planta().id]" class="btn btn-primary">Detall</a>
+  </div>
+</div>

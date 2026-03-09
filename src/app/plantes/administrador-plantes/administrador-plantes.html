@@ -1,0 +1,6 @@
+<button class="btn btn-success mb-3" (click)="nuevaPlanta()">
+  + Nueva Planta
+</button>
+<app-plantes-table (action)="onAction($event)"></app-plantes-table>
+<app-administrador-plantes-formulari [planta]="currentPlanta()">
+</app-administrador-plantes-formulari>

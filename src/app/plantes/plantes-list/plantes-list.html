@@ -1,0 +1,13 @@
+<div class="container p-3">
+    @for(planta of plantes(); track planta.id) {
+        <p>{{ planta.nom }} - {{ planta.favorite ? '❤️' : '🖤' }}</p>
+    }
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @for(planta of plantes(); track planta.id) {
+        <div class="col">
+            <app-plantes-item [plantaId]="planta" (favoriteToggled)="toggleFavorite(planta)"></app-plantes-item>
+        </div>
+        }
+    </div>
+    {{plantes() | json}}
+</div>

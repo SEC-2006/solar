@@ -1,0 +1,9 @@
+<td>{{planta().nom}}</td>
+<td>{{planta().ubicacio.latitude}},{{planta().ubicacio.longitude}}</td>
+<td>{{planta().user}}</td>
+<td>{{planta().capacitat}}</td>
+<td>{{planta().favorite ? '❤️' : '🖤'}}</td>
+<td>
+    <button class="btn btn-primary" (click)="editar()">Editar</button>
+    <button class="btn btn-danger" (click)="eliminar()">Eliminar</button>
+</td>

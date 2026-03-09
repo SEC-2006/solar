@@ -1,0 +1,17 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Ubicació</th>
+      <th scope="col">Usuari</th>
+      <th scope="col">Capacitat</th>
+      <th scope="col">Favorita</th>
+      <th scope="col">Accions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(planta of plantes(); track planta.id){
+      <tr app-plantes-table-row [plantaId]="planta" (action)="onAction($event)"></tr>
+    }
+  </tbody>
+</table>

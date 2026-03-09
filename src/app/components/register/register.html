@@ -1,0 +1,31 @@
+<form [formGroup]="formulario">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" formControlName="email" 
+    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+    [ngClass]="emailValidation"
+    >
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+    [ngClass]="{'is-invalid': passwordNotValid('password'), 'is-valid': passwordValid('password')}"
+    >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword2" class="form-label">Repeat Password</label>
+    <input type="password" formControlName="password2" class="form-control" id="exampleInputPassword2"
+    [ngClass]="{'is-invalid': passwordNotValid('password2'), 'is-valid': passwordValid('password2')}"
+    >
+  </div>
+  @if (errorMessage() != '') {
+    <div class="alert alert-danger" role="alert">
+      {{ errorMessage() }}
+    </div>
+  }
+  <button type="submit" (click)="register()" class="btn btn-primary">Register</button>
+</form>
+{{formulario.value | json}}
+{{formulario.status | json}}
+{{formulario.errors | json}}
